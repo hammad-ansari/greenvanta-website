@@ -1,0 +1,185 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BuyLink from "../../components/BuyLink.astro";
+import {
+  disclosure,
+  fdaDisclaimer,
+  otherProduct,
+  products,
+  type Product,
+} from "../../data/site";
+import { breadcrumbNode, productNode } from "../../lib/schema";
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const companion = otherProduct(product.slug);
+const nutritionNote =
+  product.slug === "mushroom-coffee"
+    ? "The panel also says the drink is not a significant source of cholesterol, dietary fiber, total sugars, added sugars, vitamin D, calcium, iron, or potassium."
+    : "Other ingredients printed with the panel: hypromellose (vegetable capsule) and magnesium stearate.";
+
+const gtin = product.specs.find((row) => row.label.startsWith("UPC"))?.value;
+const jsonLd = [
+  breadcrumbNode(Astro.site, [
+    { name: "Home", path: "/" },
+    { name: product.name, path: `/products/${product.slug}/` },
+  ]),
+  productNode({
+    site: Astro.site,
+    name: product.name,
+    description: product.lede,
+    path: `/products/${product.slug}/`,
+    image: product.image,
+    sku: product.asin,
+    gtin12: gtin && /^\d{12}$/.test(gtin) ? gtin : undefined,
+    properties: product.specs.map((row) => ({ name: row.label, value: row.value })),
+  }),
+];
+---
+
+<BaseLayout title={product.metaTitle} description={product.metaDescription} jsonLd={jsonLd}>
+
+  <article class="page-hero">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+        <ol class="crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">{product.name}</li>
+        </ol>
+      </nav>
+      <div class="product-hero">
+        <figure class="frame cutout">
+          <img
+            src={product.image}
+            srcset={product.srcset}
+            sizes={product.sizes}
+            alt={product.imageAlt}
+            width={product.width}
+            height={product.height}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </figure>
+        <div>
+          <p class="eyebrow">{product.eyebrow}</p>
+          <h1>{product.name}</h1>
+          <p class="lede" style="margin-top:1rem">{product.lede}</p>
+          <ul class="chips">
+            {product.chips.map((chip) => (
+              <li>
+                <strong>{chip.value}</strong>
+                {chip.label.toLowerCase()}
+              </li>
+            ))}
+          </ul>
+          <div class="actions">
+            <BuyLink href={product.buy}>Buy on Amazon</BuyLink>
+            <BuyLink href={product.reviews} variant="ghost">Read Amazon reviews</BuyLink>
+          </div>
+          <p class="fine">
+            {disclosure} Sold on Amazon under ASIN {product.asin}. The price is
+            shown there, because it changes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="section band">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">On the listing</p>
+        <h2>{product.panelTitle}</h2>
+        <p class="lede" style="margin-top:0.9rem">{product.panelNote}</p>
+        <table class="specs">
+          <caption class="sr">{product.panelTitle}</caption>
+          <tbody>
+            {product.rows.map((row) => (
+              <tr>
+                <th scope="row">{row.label}</th>
+                <td>{row.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="note">{nutritionNote}</p>
+      </div>
+      <figure class="frame">
+        <img
+          src={product.secondary}
+          srcset={product.secondarySrcset}
+          sizes={product.secondarySizes}
+          alt={product.secondaryAlt}
+          width={product.secondaryWidth}
+          height={product.secondaryHeight}
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Ingredients</p>
+        <h2>What the ingredient line names.</h2>
+        <p class="lede" style="margin-top:0.9rem">{product.summary}</p>
+        <ul class="ingredient-list">
+          {product.ingredients.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="routine">
+        <p class="eyebrow">Use</p>
+        <h3>Directions limited to the package.</h3>
+        <ol>
+          {product.steps.map((step) => (
+            <li>
+              <span>
+                <strong>{step.title}.</strong> {step.text}
+              </span>
+            </li>
+          ))}
+        </ol>
+        <h3>Care and cautions</h3>
+        <ul class="ingredient-list">
+          {product.safety.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+    <div class="wrap">
+      <table class="specs">
+        <caption class="sr">Product details from the Amazon listing</caption>
+        <tbody>
+          {product.specs.map((row) => (
+            <tr>
+              <th scope="row">{row.label}</th>
+              <td>{row.value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="note">
+        {fdaDisclaimer} This page does not add claims about energy, immunity,
+        focus, or any other health outcome. {disclosure}
+      </p>
+      <div class="actions">
+        <BuyLink href={product.buy}>Buy {product.nav.toLowerCase()} on Amazon</BuyLink>
+        <a class="btn btn-ghost" href={`/products/${companion.slug}/`}>
+          See {companion.nav.toLowerCase()}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

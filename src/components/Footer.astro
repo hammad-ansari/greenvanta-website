@@ -1,0 +1,53 @@
+---
+import { disclosure, storeUrl } from "../data/site";
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="logo-plate" href="/">
+        <img
+        src="/images/logo-wordmark.webp"
+        alt="GreenVanta"
+        width="360"
+        height="98"
+        loading="lazy"
+        decoding="async"
+      />
+      </a>
+      <p>
+        Moringa leaf capsules and a medium-roast mushroom coffee. Read the label
+        here. Buy on Amazon, not on this page.
+      </p>
+    </div>
+    <div>
+      <p class="eyebrow">The products</p>
+      <ul class="footer-links">
+        <li><a href="/products/moringa/">Moringa capsules</a></li>
+        <li><a href="/products/mushroom-coffee/">Mushroom coffee</a></li>
+        <li>
+          <a href={storeUrl} target="_blank" rel="noopener noreferrer">
+            GreenVanta on Amazon
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p class="eyebrow">The fine print</p>
+      <ul class="footer-links">
+        <li><a href="/privacy/">Privacy policy</a></li>
+        <li><a href="/terms/">Terms</a></li>
+        <li><a href="/#faq">Questions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="disclosure" style="margin-top:1.4rem;color:rgba(250,246,239,.82)">
+      {disclosure}
+    </p>
+    <div class="footer-base">
+      <span>GreenVanta. Purchases are completed on Amazon.</span>
+      <span>No newsletter. No cart on this site.</span>
+    </div>
+  </div>
+</footer>

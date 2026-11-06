@@ -1,0 +1,394 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Botanical from "../components/Botanical.astro";
+import BuyLink from "../components/BuyLink.astro";
+import {
+  coffeeBuy,
+  disclosure,
+  faqs,
+  fdaDisclaimer,
+  moringaBuy,
+  mushrooms,
+  products,
+} from "../data/site";
+import { faqNode, websiteNode } from "../lib/schema";
+
+const moringa = products[0];
+const coffee = products[1];
+const title = "GreenVanta | Moringa Capsules & Mushroom Coffee";
+const description =
+  "GreenVanta offers moringa leaf capsules and a medium-roast mushroom coffee. See what the labels say, then buy on Amazon.";
+const jsonLd = [
+  websiteNode(
+    Astro.site,
+    "GreenVanta is a short line: moringa leaf powder in veggie capsules, and a medium-roast instant coffee blended with six mushrooms and coconut milk.",
+  ),
+  faqNode(faqs),
+];
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Two daily formats</p>
+        <h1>Natural wellness <em>for your daily routine.</em></h1>
+        <p class="lede">
+          GreenVanta is a short line: moringa leaf powder in veggie capsules, and
+          a medium-roast instant coffee blended with six mushrooms and coconut
+          milk. This page stays with the label. Orders happen on Amazon.
+        </p>
+        <div class="actions">
+          <a class="btn" href="/products/moringa/">Moringa capsules</a>
+          <a class="btn btn-ghost" href="/products/mushroom-coffee/">Mushroom coffee</a>
+        </div>
+        <p class="fine">{disclosure}</p>
+      </div>
+      <div class="hero-stage">
+        <div class="wash" aria-hidden="true"></div>
+        <Botanical />
+        <img
+          class="pouch"
+          src="/images/coffee-pouch.webp"
+          srcset="/images/coffee-pouch-640.webp 640w, /images/coffee-pouch.webp 1100w"
+          sizes="(max-width: 980px) 86vw, 520px"
+          alt={coffee.imageAlt}
+          width={coffee.width}
+          height={coffee.height}
+          loading="eager"
+          fetchpriority="high"
+        />
+        <img
+          class="bottle"
+          src="/images/moringa-bottle.webp"
+          srcset="/images/moringa-bottle-360.webp 360w, /images/moringa-bottle-520.webp 520w, /images/moringa-bottle.webp 761w"
+          sizes="(max-width: 980px) 40vw, 220px"
+          alt={moringa.imageAlt}
+          width={moringa.width}
+          height={moringa.height}
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </div>
+    <figure class="film">
+      <img
+        src="/images/store-hero.webp"
+        srcset="/images/store-hero-800.webp 800w, /images/store-hero.webp 1500w"
+        sizes="(max-width: 980px) 100vw, 1200px"
+        alt="GreenVanta banner with the moringa bottle, mushroom coffee pouch, and the line Natural Wellness for Your Daily Routine."
+        width="1500"
+        height="296"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption>
+        Moringa capsules and mushroom coffee — the two formats in the daily line.
+      </figcaption>
+    </figure>
+  </section>
+
+  <ul class="trust" aria-label="What the labels state">
+    <li>
+      <strong>120</strong>
+      <span>veggie capsules in the moringa bottle</span>
+    </li>
+    <li>
+      <strong>1,000 mg</strong>
+      <span>moringa leaf powder in a two-capsule serving</span>
+    </li>
+    <li>
+      <strong>30</strong>
+      <span>instant sticks in the mushroom coffee pouch</span>
+    </li>
+    <li>
+      <strong>48 mg</strong>
+      <span>caffeine listed per coffee serving</span>
+    </li>
+  </ul>
+
+  <section class="section story" id="story">
+    <Botanical />
+    <div class="wrap story-grid">
+      <blockquote class="pull" data-reveal>
+        A bottle and a pouch. That is the whole line.
+      </blockquote>
+      <div class="stack prose" data-reveal style="--delay:80ms">
+        <p class="eyebrow">The brand</p>
+        <p>
+          GreenVanta is the name on these two products, both sold on Amazon by
+          the seller GREENVANTA. One is a dietary supplement. The other is an
+          instant coffee. There is no club to join here, and nothing ships from
+          this website.
+        </p>
+        <p>
+          The useful work of these pages is narrow on purpose: show the packaging,
+          repeat the serving, the ingredients, and the directions, and link you
+          to the listing if you want to buy. We don’t add studies, seals, or
+          doctor endorsements.
+        </p>
+        <p>
+          Photographs show the products as they are sold, including words printed
+          on the bottles and pouches. Those words are not rewritten here as extra
+          health claims.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="moringa">
+    <div class="wrap">
+      <div class="section-head">
+        <div data-reveal>
+          <p class="eyebrow">01 — Capsules</p>
+          <h2>Moringa leaf, measured by the capsule.</h2>
+        </div>
+        <p class="lede" data-reveal style="--delay:80ms">
+          {moringa.summary} The powder is the leaf itself, not a concentrated extract.
+        </p>
+      </div>
+      <div class="split">
+        <figure class="frame cutout" data-reveal>
+          <img
+            src="/images/moringa-counter.webp"
+            srcset="/images/moringa-counter-800.webp 800w, /images/moringa-counter.webp 1254w"
+            sizes="(max-width: 980px) 100vw, 540px"
+            alt="GreenVanta moringa bottle on a marble counter with leaves, a glass of water, and several capsules."
+            width="1254"
+            height="1254"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <div class="split-copy" data-reveal style="--delay:80ms">
+          <h3>What a serving is</h3>
+          <p class="lede" style="margin-top:0.8rem">
+            Each capsule holds 500 mg of <em>Moringa oleifera</em> leaf powder.
+            The suggested serving is two capsules with water, which comes to
+            1,000 mg. A bottle of 120 capsules is 60 of those servings.
+          </p>
+          <ul class="chips">
+            {moringa.chips.map((chip) => (
+              <li><strong>{chip.value}</strong> {chip.label.toLowerCase()}</li>
+            ))}
+          </ul>
+          <p style="margin-top:1.1rem">
+            Other ingredients on the label are hypromellose, the vegetable
+            capsule, and magnesium stearate. Amazon lists the diet type as
+            plant-based, vegan, and vegetarian.
+          </p>
+          <div class="actions">
+            <a class="btn" href="/products/moringa/">Read the label</a>
+            <BuyLink href={moringaBuy} variant="ghost">Buy on Amazon</BuyLink>
+          </div>
+          <p class="fine">{disclosure}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="coffee">
+    <div class="wrap">
+      <div class="section-head">
+        <div data-reveal>
+          <p class="eyebrow">02 — Coffee</p>
+          <h2>Medium roast, one stick at a time.</h2>
+        </div>
+        <p class="lede" data-reveal style="--delay:80ms">
+          {coffee.summary} The listing calls it an adaptogenic blend because of the mushrooms named on the pouch.
+        </p>
+      </div>
+      <div class="split reverse">
+        <figure class="frame" data-reveal>
+          <img
+            src="/images/store-coffee.webp"
+            srcset="/images/store-coffee-800.webp 800w, /images/store-coffee.webp 1064w"
+            sizes="(max-width: 980px) 100vw, 540px"
+            alt="Two people holding cups beside the GreenVanta mushroom coffee pouch, instant sticks, coconut, and mushrooms."
+            width="1064"
+            height="640"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <div class="split-copy" data-reveal style="--delay:80ms">
+          <h3>What is in the cup</h3>
+          <p class="lede" style="margin-top:0.8rem">
+            Arabica coffee, coconut milk, and six mushrooms: lion’s mane, reishi,
+            cordyceps, shiitake, turkey tail, and king trumpet. The product
+            details list 48 mg of caffeine per serving and a coconut flavor.
+          </p>
+          <ul class="chips">
+            {coffee.chips.map((chip) => (
+              <li><strong>{chip.value}</strong> {chip.label.toLowerCase()}</li>
+            ))}
+          </ul>
+          <p style="margin-top:1.1rem">
+            A stick dissolves in hot or cold water. The preparation graphic says
+            one 6 g stick, 6–10 oz of water, and a short stir. Milk, creamer, or
+            ice are optional.
+          </p>
+          <div class="actions">
+            <a class="btn" href="/products/mushroom-coffee/">See the blend</a>
+            <BuyLink href={coffeeBuy} variant="ghost">Buy on Amazon</BuyLink>
+          </div>
+          <p class="fine">{disclosure}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ingredients">
+    <div class="wrap">
+      <div class="section-head">
+        <div data-reveal>
+          <p class="eyebrow">The blend</p>
+          <h2>Six mushrooms, named and nothing more.</h2>
+        </div>
+        <p class="lede" data-reveal style="--delay:80ms">
+          The Amazon ingredient line names these six mushrooms. It does not list
+          a milligram amount for each one. The notes below identify them. They
+          do not assign benefits.
+        </p>
+      </div>
+      <dl class="atlas">
+        {mushrooms.map((item, index) => (
+          <div data-reveal style={`--delay:${index * 40}ms`}>
+            <dt>{item.name}</dt>
+            <dd>{item.text}</dd>
+          </div>
+        ))}
+      </dl>
+      <div class="base-row">
+        <article data-reveal>
+          <h3>Arabica coffee</h3>
+          <p>
+            The base of the drink. The listing calls the roast medium and the
+            flavor coconut, and lists 48 mg of caffeine in a serving.
+          </p>
+        </article>
+        <article data-reveal style="--delay:80ms">
+          <h3>Coconut milk</h3>
+          <p>
+            Named with the coffee and the mushrooms. It is the coconut note in
+            the cup, and it matters if you avoid coconut.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="routine">
+    <div class="wrap">
+      <div class="section-head">
+        <div data-reveal>
+          <p class="eyebrow">From the label</p>
+          <h2>How the packages say to use them.</h2>
+        </div>
+        <p class="lede" data-reveal style="--delay:80ms">
+          Directions below are taken from the moringa label and the mushroom
+          coffee preparation graphic. If a packet in your kitchen says something
+          else, follow the packet.
+        </p>
+      </div>
+      <div class="routines">
+        <article class="routine" data-reveal>
+          <p class="eyebrow">Moringa capsules</p>
+          <h3>Two capsules, with water.</h3>
+          <ol>
+            {moringa.steps.map((step) => (
+              <li>
+                <span><strong>{step.title}.</strong> {step.text}</span>
+              </li>
+            ))}
+          </ol>
+          <a href="/products/moringa/">Full capsule details</a>
+        </article>
+        <article class="routine" data-reveal style="--delay:80ms">
+          <p class="eyebrow">Mushroom coffee</p>
+          <h3>One stick, hot or cold.</h3>
+          <ol>
+            {coffee.steps.map((step) => (
+              <li>
+                <span><strong>{step.title}.</strong> {step.text}</span>
+              </li>
+            ))}
+          </ol>
+          <a href="/products/mushroom-coffee/">Full coffee details</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <div data-reveal>
+          <p class="eyebrow">Reviews</p>
+          <h2>Read them where they were written.</h2>
+        </div>
+        <p class="lede" data-reveal style="--delay:80ms">
+          Customer comments stay on Amazon. Copying a review onto this site would
+          freeze a moment that can change. Use the links to open the current
+          review section for each product.
+        </p>
+      </div>
+      <div class="reviews">
+        <a class="review-card" href={moringa.reviews} target="_blank" rel="noopener noreferrer" data-reveal>
+          <p class="eyebrow">Moringa capsules</p>
+          <h3>Amazon reviews for the bottle.</h3>
+          <span>Opens the listing at customer reviews.</span>
+        </a>
+        <a class="review-card" href={coffee.reviews} target="_blank" rel="noopener noreferrer" data-reveal style="--delay:80ms">
+          <p class="eyebrow">Mushroom coffee</p>
+          <h3>Amazon reviews for the sticks.</h3>
+          <span>Opens the listing at customer reviews.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div data-reveal>
+          <p class="eyebrow">Questions</p>
+          <h2>Plain answers, and the limits of them.</h2>
+        </div>
+        <p class="lede" data-reveal style="--delay:80ms">
+          {fdaDisclaimer}
+        </p>
+      </div>
+      <div class="faq">
+        {faqs.map((item) => (
+          <details data-reveal>
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
+      <p class="note">
+        Prices, star ratings, and stock change on Amazon. This site does not
+        reprint them. {disclosure}
+      </p>
+    </div>
+  </section>
+
+  <section class="section close">
+    <div class="wrap close-grid">
+      <div>
+        <p class="eyebrow">When you are ready</p>
+        <h2>Both listings live on Amazon.</h2>
+        <p>
+          Choose the capsule, the coffee, or the GreenVanta store. Each link
+          opens in a new tab. {disclosure}
+        </p>
+      </div>
+      <div class="actions">
+        <BuyLink href={moringaBuy} variant="light">Moringa on Amazon</BuyLink>
+        <BuyLink href={coffeeBuy} variant="ghost">Coffee on Amazon</BuyLink>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,129 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { disclosure, fdaDisclaimer, storeUrl, updated } from "../data/site";
+
+const title = "Terms | GreenVanta";
+const description =
+  "Terms for using the GreenVanta website: product information, Amazon purchases, affiliate disclosure, and no medical advice.";
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="legal">
+    <div class="wrap legal-body">
+      <header>
+        <p class="eyebrow">Terms</p>
+        <h1>Terms of use</h1>
+        <p class="updated">Last updated {updated}.</p>
+      </header>
+
+      <section>
+        <h2>An informational site</h2>
+        <p>
+          These pages describe GreenVanta moringa capsules and GreenVanta
+          mushroom coffee. They are here so you can read the label details before
+          you decide whether to visit Amazon. Using the site means you accept
+          these terms. If you do not, please leave the site.
+        </p>
+      </section>
+
+      <section>
+        <h2>Where the sale happens</h2>
+        <p>
+          GreenVanta does not sell products through this website. There is no
+          cart, no checkout, and no charge placed here. A buy button opens an
+          Amazon listing. The seller shown on that listing, the price, shipping,
+          returns, and the purchase contract are Amazon’s and the seller’s, not
+          a checkout on this domain.
+        </p>
+        <p>
+          At the time these pages were written, both listings were sold by
+          GREENVANTA. Marketplace details can change. The listing you open is
+          the current record.
+        </p>
+        <p>
+          <a href={storeUrl} target="_blank" rel="noopener noreferrer">GreenVanta’s Amazon store</a>
+          collects the same two products in one place.
+        </p>
+      </section>
+
+      <section>
+        <h2>Affiliate disclosure</h2>
+        <p>
+          {disclosure} That relationship does not raise the price you see on
+          Amazon, and it does not change the instruction to read the package.
+        </p>
+      </section>
+
+      <section>
+        <h2>Product information</h2>
+        <p>
+          We describe servings, ingredients, caffeine, and directions from the
+          Amazon listings and the product images reviewed on {updated}. Makers
+          update labels. If a bottle or a stick disagrees with this website,
+          follow the package you have and the listing you are buying from.
+        </p>
+        <p>
+          This site does not publish a price, because prices change. It does not
+          reprint customer reviews. It links to them instead.
+        </p>
+      </section>
+
+      <section>
+        <h2>No medical advice</h2>
+        <p>
+          Nothing on this site is medical, dietary, or professional advice.
+          GreenVanta does not promise that either product will affect energy,
+          immunity, focus, sleep, or any other health outcome. {fdaDisclaimer}
+        </p>
+        <p>
+          Talk with a qualified clinician before using a dietary supplement,
+          especially if you are pregnant, nursing, giving something to a child,
+          or taking medicine. The moringa label says to keep the bottle out of
+          reach of children and not to use it if the safety seal is damaged or
+          missing.
+        </p>
+      </section>
+
+      <section>
+        <h2>Allergens and diet marks</h2>
+        <p>
+          The coffee ingredient list includes coconut milk, and the drink is
+          caffeinated. Diet marks such as vegan, dairy-free, gluten-free, or
+          sugar-free appear on the Amazon listing or its graphics. This website
+          reports those marks. It does not issue or verify a certification seal.
+          Read the package if you avoid a food.
+        </p>
+      </section>
+
+      <section>
+        <h2>Intellectual property</h2>
+        <p>
+          The GreenVanta name, wordmark, and product photography are used here
+          to present the brand. You may not copy the site design, text, or
+          images for your own storefront. Amazon’s trademarks remain Amazon’s.
+          Linking to a listing is not a claim that Amazon sponsors this site.
+        </p>
+      </section>
+
+      <section>
+        <h2>Liability</h2>
+        <p>
+          The site is provided as a reading copy of product information. To the
+          extent the law allows, GreenVanta is not liable for decisions you make
+          from these pages, for Amazon’s fulfillment, or for differences between
+          a page and a package. Some places do not allow certain limits, and in
+          those places the limit applies only as far as the law permits.
+        </p>
+      </section>
+
+      <section>
+        <h2>Changes</h2>
+        <p>
+          These terms can be updated by changing this page and its date. The
+          version you are reading is the one that applies to your use of the
+          site today.
+        </p>
+      </section>
+    </div>
+  </article>
+</BaseLayout>

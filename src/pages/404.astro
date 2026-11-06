@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Page not found | GreenVanta";
+const description = "That page is not on the GreenVanta site. The moringa capsules and mushroom coffee pages are linked here.";
+---
+
+<BaseLayout title={title} description={description} robots="noindex, follow">
+  <section class="page-hero">
+    <div class="wrap" style="max-width: 40rem; padding-bottom: 4rem;">
+      <p class="eyebrow">404</p>
+      <h1>That page is not here.</h1>
+      <p class="lede" style="margin-top: 1rem;">
+        The label notes for the two GreenVanta products are on the pages below.
+        Orders are still placed on Amazon.
+      </p>
+      <div class="actions">
+        <a class="btn" href="/">Home</a>
+        <a class="btn btn-ghost" href="/products/moringa/">Moringa capsules</a>
+        <a class="btn btn-ghost" href="/products/mushroom-coffee/">Mushroom coffee</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

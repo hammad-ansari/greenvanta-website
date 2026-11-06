@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { disclosure, storeUrl, updated } from "../data/site";
+
+const title = "Privacy Policy | GreenVanta";
+const description =
+  "How the GreenVanta website handles information: a static brand site with Amazon links, no accounts, and no newsletter.";
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="legal">
+    <div class="wrap legal-body">
+      <header>
+        <p class="eyebrow">Privacy</p>
+        <h1>Privacy policy</h1>
+        <p class="updated">Last updated {updated}.</p>
+      </header>
+
+      <section>
+        <h2>What this site is</h2>
+        <p>
+          GreenVanta’s website describes two products, moringa capsules and
+          mushroom coffee, and links to their Amazon listings. It does not sell
+          those products itself. Purchases happen on Amazon, under Amazon’s own
+          privacy notice and conditions.
+        </p>
+      </section>
+
+      <section>
+        <h2>Information this site asks for</h2>
+        <p>
+          None. There is no account, no newsletter, no comment form, and no
+          contact form. You can read every page without giving a name, email
+          address, or payment detail.
+        </p>
+        <p>
+          If you choose to buy, Amazon collects whatever its checkout requires.
+          That collection is between you and Amazon. {disclosure}
+        </p>
+      </section>
+
+      <section>
+        <h2>Cookies and similar tools</h2>
+        <p>
+          These pages do not set advertising cookies and do not run Google
+          AdSense or another ad network. They also do not embed analytics that
+          profile visitors.
+        </p>
+        <p>
+          A host that serves the site may keep ordinary technical logs, such as
+          a browser request, the time, and an IP address, to operate and secure
+          the server. Those logs are not used by GreenVanta to build a marketing
+          profile on this website.
+        </p>
+        <p>
+          When you follow a link to Amazon, Amazon may set its own cookies.
+          Review
+          <a href="https://www.amazon.com/privacy" target="_blank" rel="noopener noreferrer">Amazon’s privacy notice</a>
+          for that activity. If advertising cookies are added to this site later,
+          this policy will name the provider and describe those cookies before
+          they are used.
+        </p>
+      </section>
+
+      <section>
+        <h2>Affiliate links</h2>
+        <p>
+          {disclosure} An affiliate link tells Amazon that a purchase started
+          from this site. It does not give GreenVanta your Amazon password,
+          payment card, or order history.
+        </p>
+      </section>
+
+      <section>
+        <h2>Children</h2>
+        <p>
+          This site is written for adults choosing a supplement or a coffee. It
+          is not directed to children, and it does not knowingly collect personal
+          information from children. The moringa label says to keep the bottle
+          out of reach of children.
+        </p>
+      </section>
+
+      <section>
+        <h2>External pages</h2>
+        <p>
+          Links leave this site, including the
+          <a href={storeUrl} target="_blank" rel="noopener noreferrer">GreenVanta Amazon store</a>.
+          Those pages have their own policies. A link is not an endorsement of
+          every statement on the destination.
+        </p>
+      </section>
+
+      <section>
+        <h2>Changes</h2>
+        <p>
+          If this policy changes, the date at the top will change with it. The
+          version on this page is the current one.
+        </p>
+      </section>
+
+      <section>
+        <h2>Questions about an order</h2>
+        <p>
+          This site does not publish a mailing address, phone number, or email
+          address, and it does not take orders. For a purchase, a delivery, or a
+          listing, use the contact options Amazon shows on that product page.
+        </p>
+      </section>
+    </div>
+  </article>
+</BaseLayout>

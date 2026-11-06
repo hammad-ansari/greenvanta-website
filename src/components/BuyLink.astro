@@ -1,0 +1,27 @@
+---
+interface Props {
+  href: string;
+  variant?: "solid" | "ghost" | "light";
+}
+
+const { href, variant = "solid" } = Astro.props;
+---
+
+<a
+  class:list={["btn", `btn-${variant}`]}
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <slot />
+  <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+    <path
+      d="M4 12 L12 4 M6.5 4 H12 V9.5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </svg>
+  <span class="sr">Opens in a new tab.</span>
+</a>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="GreenVanta">
+  <rect width="64" height="64" rx="14" fill="#F4EFE4"/>
+  <g fill="none" stroke-linejoin="round">
+    <ellipse cx="27" cy="24" rx="8.2" ry="12.4" transform="rotate(-22 27 24)" fill="#4A2A1C"/>
+    <path d="M25.2 14.8c1.6 4.2 2.2 9.2 1.2 15.2" stroke="#F4EFE4" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M24 34c7.2-1.2 16.4-6.4 22.2-13.2-7.6.6-15.2 4.6-22.2 13.2z" fill="#6AAA1B"/>
+    <path d="M28 31.2c5.2-1.4 10.6-4.2 14.4-8.2" stroke="#E7F3C9" stroke-width="1.4" stroke-linecap="round"/>
+  </g>
+</svg>
