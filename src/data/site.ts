@@ -1,6 +1,18 @@
 export const disclosure =
   "As an Amazon Associate, GreenVanta may earn from qualifying purchases.";
 
+export const company = {
+  legalName: "DREAM TO COME LLC",
+  telephone: "+13219669072",
+  telephoneDisplay: "+1 (321) 966-9072",
+  streetAddress: "7901 4th St N # 17836",
+  addressLocality: "St. Petersburg",
+  addressRegion: "FL",
+  postalCode: "33702",
+  addressCountry: "US",
+  addressCountryName: "United States",
+} as const;
+
 export const fdaDisclaimer =
   "Statements on dietary supplement packaging have not been evaluated by the Food and Drug Administration. GreenVanta products are not intended to diagnose, treat, cure, or prevent any disease.";
 
@@ -8,6 +20,8 @@ export const storeUrl =
   "https://www.amazon.com/stores/GREENVANTA/page/8D1B7718-07DE-4230-AF5D-A81A8292D177?lp_asin=B0GYLMN8PM&ref_=ast_bln";
 
 export const updated = "November 5, 2026";
+
+export const policiesUpdated = "November 8, 2026";
 
 export interface Step {
   title: string;

@@ -875,7 +875,7 @@ p {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.3fr 0.85fr 0.8fr 1.05fr;
   gap: 1.5rem 2rem;
 }
 
@@ -909,6 +909,34 @@ p {
   padding: 0;
   display: grid;
   gap: 0.4rem;
+}
+
+.company-contact {
+  font-style: normal;
+  display: grid;
+  gap: 0.22rem;
+  margin: 0;
+}
+
+.company-name {
+  font-weight: 500;
+}
+
+.site-footer .company-contact {
+  color: rgba(250, 246, 239, 0.82);
+  font-size: 0.95rem;
+}
+
+.site-footer .company-name {
+  color: var(--paper);
+}
+
+.legal .company-contact {
+  margin: 0.2rem 0 0.15rem;
+}
+
+.company-contact a {
+  width: fit-content;
 }
 
 .footer-base {
@@ -985,6 +1013,12 @@ body {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media (max-width: 1160px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

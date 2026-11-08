@@ -1,0 +1,13 @@
+---
+import { company } from "../data/site";
+---
+
+<address class="company-contact">
+  <span class="company-name">{company.legalName}</span>
+  <span>{company.streetAddress}</span>
+  <span>
+    {company.addressLocality}, {company.addressRegion} {company.postalCode}
+  </span>
+  <span>{company.addressCountryName}</span>
+  <a href={`tel:${company.telephone}`}>{company.telephoneDisplay}</a>
+</address>

@@ -1,3 +1,5 @@
+import { company } from "../data/site";
+
 export interface Faq {
   q: string;
   a: string;
@@ -19,6 +21,16 @@ export function organizationNode(site: URL | undefined): Node {
   const node: Node = {
     "@type": "Organization",
     name: "GreenVanta",
+    legalName: company.legalName,
+    telephone: company.telephone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: company.streetAddress,
+      addressLocality: company.addressLocality,
+      addressRegion: company.addressRegion,
+      postalCode: company.postalCode,
+      addressCountry: company.addressCountry,
+    },
     description:
       "Moringa leaf capsules and a medium-roast mushroom coffee. Read the label here. Buy on Amazon, not on this page.",
   };
