@@ -63,6 +63,6 @@ Content-Security-Policy: default-src 'self'; img-src 'self'; style-src 'self' 'u
 
 ## What this build will not invent
 
-Do not add a price, a star rating, copied reviews, a street address, a phone number, an email, certification badges, or health-outcome claims to the pages or the structured data. Product, organization, website, breadcrumb, and FAQ data describe only text that is visible on the page.
+Do not add a price, a star rating, copied reviews, an email address, a registration number, a retail-office claim, certification badges, or health-outcome claims to the pages or the structured data. The published operator is DREAM TO COME LLC, with the mailing address and telephone shown in the footer. Organization data may repeat that legal name, telephone, and postal address when the same facts are visible on the page. Product, website, breadcrumb, and FAQ data describe only text that is visible on the page.
 
 `llms.txt` is a short factual map for answer engines. It is not a second marketing page.

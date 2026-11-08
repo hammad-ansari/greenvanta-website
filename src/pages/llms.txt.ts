@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { coffeeBuy, moringaBuy, storeUrl } from "../data/site";
+import { coffeeBuy, company, moringaBuy, storeUrl } from "../data/site";
 
 export const prerender = true;
 
@@ -18,7 +18,7 @@ export const GET: APIRoute = ({ site }) => {
 
 > GreenVanta is a brand site for two products sold on Amazon: moringa powder capsules and a medium-roast mushroom coffee. The pages repeat what the labels say and link to Amazon. This website does not take orders.
 
-The site does not publish a price, a star rating, copied customer reviews, a street address, a phone number, an email address, certification seals, or health-outcome claims.
+The site does not publish a price, a star rating, copied customer reviews, an email address, certification seals, or health-outcome claims. It is operated by ${company.legalName}, ${company.streetAddress}, ${company.addressLocality}, ${company.addressRegion} ${company.postalCode}, ${company.addressCountryName}. Telephone: ${company.telephoneDisplay}.
 
 ## Pages
 

@@ -1,6 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { disclosure, fdaDisclaimer, storeUrl, updated } from "../data/site";
+import CompanyContact from "../components/CompanyContact.astro";
+import {
+  company,
+  disclosure,
+  fdaDisclaimer,
+  policiesUpdated,
+  storeUrl,
+  updated,
+} from "../data/site";
 
 const title = "Terms | GreenVanta";
 const description =
@@ -13,7 +21,7 @@ const description =
       <header>
         <p class="eyebrow">Terms</p>
         <h1>Terms of use</h1>
-        <p class="updated">Last updated {updated}.</p>
+        <p class="updated">Last updated {policiesUpdated}.</p>
       </header>
 
       <section>
@@ -23,6 +31,19 @@ const description =
           mushroom coffee. They are here so you can read the label details before
           you decide whether to visit Amazon. Using the site means you accept
           these terms. If you do not, please leave the site.
+        </p>
+      </section>
+
+      <section>
+        <h2>The operator</h2>
+        <p>
+          These pages are operated by {company.legalName}. GreenVanta is the
+          brand name used here.
+        </p>
+        <CompanyContact />
+        <p>
+          No email address is published on this site. The site does not accept
+          orders or payments. A purchase is completed on Amazon.
         </p>
       </section>
 

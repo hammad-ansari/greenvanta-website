@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { disclosure, storeUrl, updated } from "../data/site";
+import CompanyContact from "../components/CompanyContact.astro";
+import { company, disclosure, policiesUpdated, storeUrl } from "../data/site";
 
 const title = "Privacy Policy | GreenVanta";
 const description =
@@ -13,7 +14,7 @@ const description =
       <header>
         <p class="eyebrow">Privacy</p>
         <h1>Privacy policy</h1>
-        <p class="updated">Last updated {updated}.</p>
+        <p class="updated">Last updated {policiesUpdated}.</p>
       </header>
 
       <section>
@@ -23,6 +24,19 @@ const description =
           mushroom coffee, and links to their Amazon listings. It does not sell
           those products itself. Purchases happen on Amazon, under Amazon’s own
           privacy notice and conditions.
+        </p>
+      </section>
+
+      <section>
+        <h2>Who operates this site</h2>
+        <p>
+          GreenVanta is the brand name on these pages. The site is operated by
+          {company.legalName}.
+        </p>
+        <CompanyContact />
+        <p>
+          This site does not publish an email address. It does not take orders
+          or collect payment.
         </p>
       </section>
 
@@ -102,9 +116,8 @@ const description =
       <section>
         <h2>Questions about an order</h2>
         <p>
-          This site does not publish a mailing address, phone number, or email
-          address, and it does not take orders. For a purchase, a delivery, or a
-          listing, use the contact options Amazon shows on that product page.
+          For a purchase, a delivery, or a listing, use the contact options Amazon
+          shows on that product page.
         </p>
       </section>
     </div>
